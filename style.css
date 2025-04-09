@@ -1,0 +1,154 @@
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4cc9f0;
+  --dark-color: #2b2d42;
+  --light-color: #f8f9fa;
+  --warning-color: #f8961e;
+  --danger-color: #ef233c;
+}
+
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.weather-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.weather-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+h1 {
+  color: var(--dark-color);
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 2px;
+}
+
+.form-control, .input-group-text {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
+  border-color: var(--primary-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+}
+
+.temp-display {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin: 15px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.location-display {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 10px;
+}
+
+.weather-info .badge {
+  font-size: 0.9rem;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 500;
+  background: linear-gradient(135deg, var(--accent-color), #4895ef);
+  text-transform: capitalize;
+}
+
+.humidity-display {
+  font-size: 1.1rem;
+  color: var(--dark-color);
+  font-weight: 500;
+}
+
+.humidity-display i {
+  color: #4895ef;
+}
+
+.weather-icon i {
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.text-muted {
+  font-size: 0.9rem;
+}
+
+#weather-image {
+  transition: all 0.5s ease;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+#weather-image:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+@media (max-width: 768px) {
+  .temp-display {
+    font-size: 2.5rem;
+  }
+  
+  .location-display {
+    font-size: 1.2rem;
+  }
+}
+
+/* Animation for temperature change */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.temp-change {
+  animation: pulse 0.5s ease;
+}
