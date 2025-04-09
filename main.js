@@ -7,6 +7,8 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
       
       async function getWeather() {
         let City = document.getElementById("City").value.trim();
+       
+
         if (!City) {
           alert("Please enter a city name");
           return;
@@ -99,6 +101,7 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
 
           icon.className = iconClass + " fa-3x";
           icon.style.color = iconColor;
+          document.getElementById("City").value = "";
 
         } catch (error) {
           console.error("Error fetching weather:", error);
@@ -108,5 +111,7 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
           const btn = document.querySelector('#weatherForm button');
           btn.innerHTML = '<i class="fas fa-search me-2"></i>Get Weather';
           btn.disabled = false;
+
+          
         }
       }
